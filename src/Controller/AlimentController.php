@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AlimentController extends AbstractController
 {
     /**
-     * @Route("/aliment", name="aliment")
+     * @Route("/", name="aliment")
      */
     public function index(AlimentRepository $repository)
     {

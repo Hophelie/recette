@@ -16,13 +16,13 @@ class AppFixtures extends Fixture
         foreach ($aliments as $key => $value) {
 
             $product = new Aliment();
-            $product->setNom($value);
-            $product->setImage($value);
-            $product->setPrix(mt_rand(1, 10));
-            $product->setCalories(mt_rand(1, 70));
-            $product->setProteines(mt_rand(1, 70));
-            $product->setGlucides(mt_rand(1, 70));
-            $product->setLipides(mt_rand(1, 70));
+            $product->setNom($value)
+            ->setImage($value)
+            ->setPrix(mt_rand(1, 10))
+            ->setCalories(mt_rand(1, 70))
+            ->setProteines(mt_rand(1, 70))
+            ->setGlucides(mt_rand(1, 70))
+            ->setLipides(mt_rand(1, 70));
             $manager->persist($product);
         }
 
