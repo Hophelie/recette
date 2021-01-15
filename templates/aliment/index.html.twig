@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AlimentController!{% endblock %}
+
+{% block body %}
+
+<div class="container"> 
+    <div class="row">
+    
+{% for aliment in aliments %}
+<div class="col-3">
+<div class="card mb-3">
+    <h3 class="card-header text-center">{{aliment.nom}}</h3>
+    <div class="card-body">
+    </div>
+      <text x="50%" y="50%" fill="#dee2e6" dy=".3em"><img src="{{ asset("images/" ~ aliment.image ~ ".jpg") }}" height="100%" width="100%"><br></text>
+    </svg>
+    <div class="card-body">
+      <p class="card-text"> <h5> Prix: {{aliment.prix}}€</h5></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Calories: {{aliment.calories}} </li>
+      <li class="list-group-item">Proteines: {{aliment.proteines}}</li>
+      <li class="list-group-item">Glucides {{aliment.glucides}}</li>
+      <li class="list-group-item">Lipides:  {{aliment.lipides}}</li>
+    </ul>
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+ </div>
+
+
+
+{% endfor %}
+</div>
+</div>
+{% endblock %}
