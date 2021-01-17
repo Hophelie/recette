@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Ajouter un aliment
+{% endblock %}
+
+{% block body %}
+	<br>
+	<h3>Ajouter un article</h3>
+	<hr>
+
+
+
+	<div class="container col-4">
+
+		<form>
+
+			{{form_row(formulaire.nom,{'attr': {class:'form-control'}}
+			)}}
+
+			
+
+			{{form_row(formulaire.prix,{'attr': {class:'form-control'}}
+            )}}
+            <br>
+			<div class="row">
+				<div class="col-6">
+
+					{{form_row(formulaire.calories,{'attr': {class:'form-control'}}
+					)}}
+				</div>
+				<div class="col-6">
+					{{form_row(formulaire.proteines,{'attr': {class:'form-control'}}
+					)}}
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+
+					{{form_row(formulaire.lipides,{'attr': {class:'form-control'}}
+					)}}
+				</div>
+				<div class="col-6">
+					{{form_row(formulaire.glucides,{'attr': {class:'form-control'}}
+					)}}
+				</div>
+            </div>
+            <br>
+            {{form_row(formulaire.image,{'attr': {class:'form-control'}}
+            )}}
+            <br>
+            <hr>
+            <br>
+			{{form_row(formulaire.save,{'attr': {class:'btn btn-outline-success'}}
+			)}}
+		</form>
+	</div>
+
+	{{form_rest(formulaire)}}
+
+
+{% endblock body %}
