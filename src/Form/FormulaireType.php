@@ -36,20 +36,4 @@ class FormulaireType extends AbstractType
     }
 
     
-
-    // public function ajoutAliment(Request $request, EntityManagerInterface $entityManager)
-    // {
-
-        
-
-    //     ->add('nom',TextType::class)
-    //     ->add('image',FileType::class)
-    //     ->add('prix',IntegerType::class)
-    //     ->add('calories',IntegerType::class)
-    //     ->add('proteines',IntegerType::class)
-    //     ->add('glucides',IntegerType::class)
-    //     ->add('lipides',IntegerType::class)
-    //     ->add('save', SubmitType::class,['label'=>'ajouter un aliment']);
-         
-    // }
 }

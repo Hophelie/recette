@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\Aliment;
+use App\Entity\AlimentFiltre;
+use App\Form\FiltreType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -47,4 +49,21 @@ class AlimentRepository extends ServiceEntityRepository
         ;
     }
     */
+   
+    public function findBySearch($data)
+    {
+       dump($data);
+        foreach($data as $key => $value){
+            $$key = $value; 
+        }
+      
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.prixMax < :prixMax')
+            ->andWhere('a.glucidesMax < :glucidesMax')
+            ->setParameter('prixMax', $prixMax)
+            ->setParameter('gluMax', $glucidesMax)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 }

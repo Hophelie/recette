@@ -10,19 +10,17 @@
 	<hr>
 
 
-
 	<div class="container col-4">
-
-		<form>
+{{form_start(formulaire)}}
 
 			{{form_row(formulaire.nom,{'attr': {class:'form-control'}}
 			)}}
 
-			
 
 			{{form_row(formulaire.prix,{'attr': {class:'form-control'}}
-            )}}
-            <br>
+			)}}
+			
+			<br>
 			<div class="row">
 				<div class="col-6">
 
@@ -45,19 +43,19 @@
 					{{form_row(formulaire.glucides,{'attr': {class:'form-control'}}
 					)}}
 				</div>
-            </div>
-            <br>
-            {{form_row(formulaire.image,{'attr': {class:'form-control'}}
-            )}}
-            <br>
-            <hr>
-            <br>
+			</div>
+			<br>
+			{{form_row(formulaire.image,{'attr': {class:'form-control'}}
+			)}}
+			<br>
+			<hr>
+			<br>
 			{{form_row(formulaire.save,{'attr': {class:'btn btn-outline-success'}}
 			)}}
-		</form>
+	
 	</div>
 
 	{{form_rest(formulaire)}}
 
-
+	{{form_end(formulaire)}}
 {% endblock body %}

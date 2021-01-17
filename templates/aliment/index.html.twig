@@ -5,38 +5,56 @@
 
 {% block body %}
 	<br>
-	<div class="container">
-		<div class="row">
+	
+	<div class="container-fluid">
+		<h5>Filtrer par:</h5>
+		<br>
+		<div class="jumbotron col-1">
+			{{form_start(form)}}
 
-			{% for aliment in aliments %}
-				<div class=" col-md-4">
-					<div class="card">
-						<img src="{{ asset("images/" ~ aliment.image ~ ".jpg") }}" class="card-img-top" alt="..." height="100%" width="100%">
-					
-					<div class="card-body">
+			{{form_row(form.prixMax,{'attr': {class:'form-control'}}
+			)}}
+			{{form_row(form.glucidesMax,{'attr': {class:'form-control'}}
+			)}}
+			<hr>
+			{{form_row(form.submit,{'attr': {class:'btn btn-secondary btn-sm'}}
+			)}}
 
-						<div class="card-header">
-							<h4 class="card-title text-center">{{aliment.nom}}</h4>		
-						
-							<h6 class="card-text">Prix:{{aliment.prix}}€</h6>
-						</div>
-						<ul class="list-group  striped-list">
-							<li class="list-group-item">Calories:
-								{{aliment.calories}}
-							</li>
-							<li class="list-group-item">Proteines:
-								{{aliment.proteines}}</li>
-							<li class="list-group-item">Glucides
-								{{aliment.glucides}}</li>
-							<li class="list-group-item">Lipides:
-								{{aliment.lipides}}</li>
-						</ul>
-					</div>
-				</div>
-					<br>
-				</div>
-
-			{% endfor %}
+			{{form_end(form)}}
+			</div>
 		</div>
-	</div>
-{% endblock %}
+		<div class="container">
+			<div class="row">
+
+				{% for aliment in aliments %}
+					<div class=" col-md-4">
+						<div class="card">
+							<img src="{{ asset("images/" ~ aliment.image ~ ".jpg") }}" class="card-img-top" alt="..." height="100%" width="100%">
+
+							<div class="card-body">
+
+								<div class="card-header">
+									<h4 class="card-title text-center">{{aliment.nom}}</h4>
+
+									<h6 class="card-text">Prix:{{aliment.prix}}€</h6>
+								</div>
+								<ul class="list-group  striped-list">
+									<li class="list-group-item">Calories:
+										{{aliment.calories}}
+									</li>
+									<li class="list-group-item">Proteines:
+										{{aliment.proteines}}</li>
+									<li class="list-group-item">Glucides
+										{{aliment.glucides}}</li>
+									<li class="list-group-item">Lipides:
+										{{aliment.lipides}}</li>
+								</ul>
+							</div>
+						</div>
+						<br>
+					</div>
+
+				{% endfor %}
+			</div>
+		</div>
+	{% endblock %}
