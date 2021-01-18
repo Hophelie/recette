@@ -18,13 +18,13 @@ class FormulaireType extends AbstractType
     {
         $builder
         ->add('nom',TextType::class)
-        ->add('image',FileType::class)
+        ->add('image',FileType::class, ['data_class'=>null, 'required'=>false])
         ->add('prix',IntegerType::class)
         ->add('calories',IntegerType::class)
         ->add('proteines',IntegerType::class)
         ->add('glucides',IntegerType::class)
         ->add('lipides',IntegerType::class)
-        ->add('save', SubmitType::class,['label'=>'ajouter un aliment']);
+        ->add('save', SubmitType::class,['label'=>'Sauvegarder']);
         ;
     }
 

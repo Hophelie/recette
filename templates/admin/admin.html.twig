@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AlimentController!
+{% endblock %}
+
+{% block body %}
+	<br>
+	
+		<div class="container ">
+           
+            <a  href="{{path('ajoutAliment')}}"><button type="button" class="btn btn-outline-success mb-3 btn-block ">Ajouter un aliment</button></a>
+              
+			<div class="row">
+                
+  
+                <table class="table table-striped text-center">
+                    <tr>
+                        <th>Image</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Proteines</th>
+                        <th>Calories</th>
+                        <th>Glucides</th>
+                        <th>Lipides</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr >
+
+				{% for aliment in aliments %}
+                    <td><img src="{{ asset("images/" ~ aliment.image ~ ".jpg") }}" alt="..." height="75px" width="75px"></td>                   
+                    <td>{{aliment.nom}}</td>
+                    <td>{{aliment.prix}}€</td>
+                     <td>{{aliment.proteines}}</td>
+                     <td>{{aliment.calories}}</td> 
+                    <td>{{aliment.glucides}}</td>
+                    <td>{{aliment.lipides}}</td>
+                    <td><a href="{{path('modifAdmin',{ 'id':aliment.id} )}}"><button type="button" class="btn btn-outline-secondary btn-sm my-3">Modifier</button></a> 
+                        <a href="{{path('supprAdmin',{ 'id':aliment.id} )}}"><button type="button" class="btn btn-outline-danger btn-sm my-3">Supprimer</button></td></a>
+								
+  </tr>
+				{% endfor %}
+			</div>
+        </div> 
+  
+             
+      </table>
+
+	{% endblock %}

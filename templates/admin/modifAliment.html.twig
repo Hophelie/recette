@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Ajouter un aliment
+{% endblock %}
+
+{% block body %}
+	<br>
+	<h3>Modifier un article</h3>
+	<hr>
+
+
+	<div class="container col-4">
+        <div  class="text-center" >
+       <img src="{{asset('images/' ~ aliments.image ~ '.jpg')}}" alt="" height="50%" width="50%"> 
+    </div>
+{{form_start(formulaire)}}
+
+			{{form_row(formulaire.nom,{'attr': {class:'form-control'}}
+			)}}
+
+
+			{{form_row(formulaire.prix,{'attr': {class:'form-control'}}
+			)}}
+			
+			<br>
+			<div class="row">
+				<div class="col-6">
+
+					{{form_row(formulaire.calories,{'attr': {class:'form-control'}}
+					)}}
+				</div>
+				<div class="col-6">
+					{{form_row(formulaire.proteines,{'attr': {class:'form-control'}}
+					)}}
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+
+					{{form_row(formulaire.lipides,{'attr': {class:'form-control'}}
+					)}}
+				</div>
+				<div class="col-6">
+					{{form_row(formulaire.glucides,{'attr': {class:'form-control'}}
+					)}}
+				</div>
+			</div>
+			<br>
+			{{form_row(formulaire.image,{'attr': {class:'form-control'}}
+			)}}
+			<br>
+			<hr>
+			<br>
+			{{form_row(formulaire.save,{'attr': {class:'btn btn-outline-success'}}
+			)}}
+	
+	</div>
+
+	{{form_rest(formulaire)}}
+
+	{{form_end(formulaire)}}
+{% endblock body %}
