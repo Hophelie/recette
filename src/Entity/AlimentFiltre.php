@@ -7,7 +7,7 @@ use App\Repository\AlimentFiltreRepository;
 
 class AlimentFiltre
 {
-   
+    
 
    
     private $prixMax;

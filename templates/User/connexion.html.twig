@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConnexionController!{% endblock %}
+
+{% block body %}
+<h1>Connexion</h1>
+<div class="container col-4">
+
+    {% if erreur %}
+    
+    <div class="alert alert-danger">
+{{erreur.messageKey}} 
+<!-- va afficher le message d'erreur  sous format réduit-->
+    </div>
+    {% endif %}
+
+
+<form action="{{path('connexion')}}" method="POST">
+
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Adresse mail" required name="_username" value="{{lastUserName}}">
+    </div>
+    <br>
+    <div class="form-group">
+        <input type="password" class="form-control" placeholder="Mot de passe" required name="_password">
+    </div>
+    <hr>
+    <div class="text-center">
+    <button type="submit" class="btn btn-outline-success btn-lg">Valider</button>
+
+    <a href="{{path('inscription')}}"><button type="submit" class="btn btn-outline-primary btn-lg">S'inscrire</button></a>
+
+</form>
+
+</div>
+</div>
+{% endblock %}
