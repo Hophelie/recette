@@ -11,19 +11,26 @@
     use Symfony\Component\HttpFoundation\Request;
     use Symfony\Component\HttpFoundation\Response;
     use Symfony\Component\Routing\Annotation\Route;
-    use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
     use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+
 
 class UserController extends AbstractController
     {
 
         /**
+         * @Route("/modifInfos{id}", name="modifInfos")
          * @Route("/inscription", name="inscription")
          */
-        public function inscription(UserRepository $repository, Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $encoder): Response
+        public function gestionInfos($id, UserRepository $repository, Request $request, EntityManagerInterface $em, UserPasswordEncoderInterface $encoder): Response
         {
-            $user = new User();
+            if($id == null){
+            $user = new User(); 
+           
+        }else{
+
+            $user = $repository->find($id);
+
+        }
             $form = $this->createForm(InscriptionType::class, $user);
             $form->handleRequest($request);
 
@@ -36,30 +43,33 @@ class UserController extends AbstractController
                 $em->persist($user);
                 $em->flush();
 
-                return $this->redirectToRoute('connexion');
+                if($id == null){
+
+                 return $this->redirectToRoute('connexion');  
+
+                }else{
+
+                 return $this->redirectToRoute('infoUser'); 
+
+                }
+                
             }
+            
             return $this->render('User/inscription.html.twig', [
                 'user' => $user,
                 'form' => $form->createView(),
             ]);
         }
 
-        /**
-         * @Route("/connexion", name="connexion")
-         */
-        public function connexion(AuthenticationUtils $authenticationUtils): Response
-        {
-            $erreur = $authenticationUtils->getLastAuthenticationError(); //recupere le message d'erreur
-            $lastusername = $authenticationUtils->getLastUsername(); //recupere le dernier identifiant utilisé
-            return $this->render('User/connexion.html.twig', [
-                'lastUserName' =>  $lastusername,
-                'erreur' => $erreur
-            ]);
-        }
-
-        /**
-         * @Route("/logout", name="logout")
-         */
-        public function logout(){}
         
+        /**
+         * @Route("/infoUser", name="infoUser")
+         */
+        public function infoUser(UserRepository $repository)
+        {
+            
+        return $this->render('User/infoUser.html.twig');
+        }
+        
+
     }

@@ -38,18 +38,22 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Length(min="5",minMessage="Votre vot de passe doit faire 5 carractères minimum")
+     * 
      */
     private $password;
 
     /** 
-     * @assert\EqualTo(propertyPath="$password",message="Votre vot de passe doit être identique")
+     * 
+     * @assert\EqualTo(propertyPath="password",message="Votre vot de passe doit être identique")
      */
-    public $confirmMdp;
+    public $confirmPassword;
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
+
 
     public function getUsername(): ?string
     {
@@ -57,6 +61,17 @@ class User implements UserInterface
     }
 
     public function setUsername(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
     {
         $this->nom = $nom;
 
@@ -86,9 +101,10 @@ class User implements UserInterface
 
         return $this;
     }
+
+
 // Fonctions a ajouter pour que le  UserInterface fonctionne
 
-    
     public function eraseCredentials(){}
     public function getSalt(){}
     public function getRoles()

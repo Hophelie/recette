@@ -16,8 +16,8 @@ class InscriptionType extends AbstractType
         $builder
             ->add('nom')
             ->add('email')
-            ->add('mdp',PasswordType::class)
-            ->add('confirmMdp',PasswordType::class)
+            ->add('password',PasswordType::class)
+            ->add('confirmPassword',PasswordType::class)
             ->add('submit',SubmitType::class, ['label'=>'Valider'])
         ;
     }

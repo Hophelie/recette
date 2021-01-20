@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<h1>Mes informations</h1>
+
+
+<div class="container">
+<div class="card text-center offset-4" style="width: 23rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{app.user.nom}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Mail :{{app.user.email}}</h6>
+      <a href="{{path('modifInfos', {'id':app.user.id})}}" class="card-link">Modifier mes informations</a>
+      <pre>
+        
+      </pre>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -25,8 +25,11 @@ security:
                 check_path: connexion
             
             logout:
-                path: logout
+                path: app_logout
                 target: aliment
+            guard:
+                authenticators:
+                    - App\Security\ConnexionAuthenticator
 
 
             # activate different ways to authenticate
@@ -38,5 +41,5 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-         - { path: ^/admin, roles: ROLE_ADMIN }
+          #{ path: ^/admin, roles: ROLE_ADMIN }
          - { path: ^/profile, roles: ROLE_USER }
